@@ -1,0 +1,8 @@
+services:
+  tiny-webserver:
+    build: .
+    ports:
+      - "8077:80"  # Maps port 80 in the container to port 8080 on the host
+    environment:
+      RESPONSE_CODE: 200       # Customize the HTTP response code
+      RESPONSE_MESSAGE: "Tiny web server is running!"  # Customize the response message

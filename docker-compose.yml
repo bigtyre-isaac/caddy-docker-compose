@@ -1,0 +1,30 @@
+services:
+  proxy:
+    build: 
+      context: ./caddy
+      dockerfile: Dockerfile
+    environment:
+      - HOST=:80
+      - ROOT="backend1 backend2"
+      - PATH_server1=backend1
+      - PATH_server2=backend2
+    ports:
+      - "8088:80"
+
+  backend1:
+    build: 
+      context: ./test-server
+      dockerfile: Dockerfile
+    environment:
+      RESPONSE_CODE: 200
+      RESPONSE_MESSAGE: "Backend server 1 is running!"
+
+  backend2:
+    build: 
+      context: ./test-server
+      dockerfile: Dockerfile
+    environment:
+      RESPONSE_CODE: 200
+      RESPONSE_MESSAGE: "Backend server 2 says 'Hello!'" 
+
+    

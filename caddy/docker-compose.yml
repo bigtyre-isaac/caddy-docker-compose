@@ -1,0 +1,6 @@
+services:
+  caddy:
+    build: .
+    environment:
+      - ROUTE_myurlpath/withsubdir=http://backend:8080
+      - PATH_anotherpath=http://another-backend:8081
