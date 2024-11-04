@@ -15,9 +15,9 @@ cat <<EOF >> $CADDYFILE_PATH
     X-Real-IP {http.request.remote}
   }
 
+  import /etc/caddy/handle_errors.caddy
+  
 EOF
-
-
 
 # Iterate over environment variables that start with "ROUTE_" or "PATH_"
 for var in $(env | grep -E '^ROUTE_|^PATH_'); do
@@ -51,6 +51,8 @@ if [ -n "$ROOT" ]; then
   reverse_proxy $ROOT
 EOF
 fi
+
+
 
 # Close the server block
 echo "}" >> $CADDYFILE_PATH

@@ -1,0 +1,16 @@
+handle_errors {
+  # Specific handler for 502 errors
+  @502 {
+    expression {http.error.status_code} == 502
+  }
+  rewrite @502 /static/errors/502-error.html
+
+  # Default handler for other 4xx and 5xx errors
+  #@default {
+  #    expression {http.error.status_code} >= 400
+  #}
+  #rewrite @default /static/errors/default-error.html
+
+  # Serve the error pages
+  file_server
+}
