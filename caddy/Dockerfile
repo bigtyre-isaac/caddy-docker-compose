@@ -1,5 +1,5 @@
 # Use the official Caddy image as the base
-FROM caddy:2
+FROM caddy:2.11.7-alpine
 
 # Copy all static files and handle_errors configuration
 #COPY static /usr/share/caddy/static

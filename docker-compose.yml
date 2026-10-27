@@ -5,7 +5,7 @@ services:
       dockerfile: Dockerfile
     environment:
       - HOST=:80
-      - ROOT="backend1 backend2"
+      - ROOT=backend1 backend2
       - PATH_server1=backend1
       - PATH_server2=backend2
     ports:
